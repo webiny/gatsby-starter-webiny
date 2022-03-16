@@ -11,15 +11,22 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Seo = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+  const { site, webiny } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
             description
-            social {
-              twitter
+          }
+        }
+        webiny {
+          getAuthor(where: {}) {
+            data {
+              name
+              picture
+              description
+              twitterHandle
             }
           }
         }
@@ -60,7 +67,7 @@ const Seo = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
+          content: webiny.getAuthor.data.twitterHandle || ``,
         },
         {
           name: `twitter:title`,

@@ -1,31 +1,25 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    title: `Gatsby Starter Webiny Headless CMS`,
+    description: `A blog built to use Webiny Headless CMS: deploy to your cloud and be in complete control of your application.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-    },
   },
   plugins: [
     `gatsby-plugin-image`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-graphql`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        typeName: "Webiny",
+        fieldName: "webiny",
+        url: process.env.WEBINY_API_PUBLISHED_URL,
+        headers: {
+          Authorization: `Bearer ${process.env.WEBINY_API_TOKEN}`
+        }
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
