@@ -15,7 +15,7 @@ module.exports = {
       options: {
         typeName: "Webiny",
         fieldName: "webiny",
-        url: process.env.WEBINY_API_PUBLISHED_URL,
+        url: process.env.WEBINY_API_URL,
         headers: {
           Authorization: `Bearer ${process.env.WEBINY_API_TOKEN}`
         }
