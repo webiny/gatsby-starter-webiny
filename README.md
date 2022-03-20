@@ -34,17 +34,17 @@ Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cl
 
 	### Authors
 
-- A `text` field with the value "name"
-- A `text` field with the value "slug" (optionally add a validator using this regex which will make sure you have valid urls: `^(?!.*--)[a-z0-9\-]+$`)
-- a `files` field with the value "picture"
+- `text` field with the value "name"
+- `text` field with the value "slug" (optionally add a validator using this regex which will make sure you have valid urls: `^(?!.*--)[a-z0-9\-]+$`)
+- `files` field with the value "picture"
 
 	### Posts
 
-- A `text` field with the value "title"
-- A `text` field with the value "slug" (optionally use the regex above as a validator)
-- A `files` field with the value "featured image"
-- A `rich text` field with the value "body"
-- A `reference` field with the value "Author"
+- `text` field with the value "title"
+- `text` field with the value "slug" (optionally use the regex above as a validator)
+- `files` field with the value "featured image"
+- `rich text` field with the value "body"
+- `reference` field with the value "Author"
 
 	Next, choose **API Keys** in the sidebar. Add an API key with any name and description. Select "Headless CMS" and choose a Custom access level for all content model groups with the values `read` and `preview`. Save the API token and the token itself will be revealed.
 
