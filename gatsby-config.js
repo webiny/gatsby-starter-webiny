@@ -68,38 +68,39 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+            serialize: ({ query: { site, webiny } }) => {
+              return webiny.listPosts.data.map(node => {
+                return Object.assign({}, {
+                  description: node.description,
+                  date: node.createdOn,
+                  url: site.siteMetadata.siteUrl + node.slug,
+                  guid: site.siteMetadata.siteUrl + node.slug,
+                  custom_elements: [{ "content:encoded": node.body }],
                 })
               })
             },
             query: `
               {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  nodes {
-                    excerpt
-                    html
-                    fields {
-                      slug
-                    }
-                    frontmatter {
+                webiny{
+                  listPosts(sort:createdOn_DESC) {
+                    data {
+                      id
                       title
-                      date
+                      slug
+                      description
+                      createdOn
+                      featuredImage
+                      author {
+                        name
+                        picture
+                      }
                     }
                   }
                 }
               }
             `,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "Gatsby Starter Webiny RSS Feed",
           },
         ],
       },
@@ -107,7 +108,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `Gatsby Starter Webiny`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,

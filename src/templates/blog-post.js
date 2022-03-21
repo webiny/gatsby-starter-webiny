@@ -10,9 +10,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data.webiny
 
-  console.log('previous', previous)
-  console.log('next', next)
-
   return (
     <Layout location={location} title={siteTitle}>
       <Seo

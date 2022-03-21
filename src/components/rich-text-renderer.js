@@ -156,9 +156,7 @@ const defaultRenderers = {
     quote: renderQuote
 };
 
-export const RichTextRenderer = props => {
-    console.log(props)
-    // Combine default renderers with custom renderers
+export const RichTextRenderer = props => {    // Combine default renderers with custom renderers
     const renderers = Object.assign({}, defaultRenderers, props.renderers);
 
     return (

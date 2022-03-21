@@ -26,8 +26,6 @@ const Bio = () => {
 
   const author = data.webiny.getAuthor.data
 
-  console.log(author.picture)
-
   return (
     <div className="bio">
       <img src={author.picture} alt={author.name} width={50} height={50} className="bio-avatar" />
