@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       query Posts {
         webiny {
-          listPosts {
+          listPosts(sort:createdOn_DESC) {
             data {
               id
               title
@@ -61,16 +61,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `Webiny`) {
-    const value = createFilePath({ node, getNode })
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
-}
