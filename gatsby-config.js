@@ -87,7 +87,6 @@ module.exports = {
                       id
                       title
                       slug
-                      description
                       createdOn
                       featuredImage
                       author {

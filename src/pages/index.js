@@ -8,7 +8,7 @@ import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  
+
   const posts = data.webiny.listPosts.data
 
   if (posts.length === 0) {
@@ -47,9 +47,6 @@ const BlogIndex = ({ data, location }) => {
                   </h2>
                   <DateFormatter dateString={post.createdOn}/>
                 </header>
-                <section>
-                  <p>{post.description}</p>
-                </section>
               </article>
             </li>
           )
@@ -74,7 +71,6 @@ export const pageQuery = graphql`
           id
           title
           slug
-          description
           createdOn
           featuredImage
           author {

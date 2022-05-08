@@ -17,7 +17,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               id
               title
               slug
-              description
               createdOn
               featuredImage
               author {

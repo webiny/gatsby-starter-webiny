@@ -16,8 +16,6 @@ const Bio = () => {
           data {
             name
             picture
-            description
-            twitterHandle
           }
         }
       }
@@ -32,10 +30,6 @@ const Bio = () => {
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong> {author?.description || null}
-          {` `}
-          <a href={`https://twitter.com/${author.twitterHandle || ``}`}>
-            You should follow them on Twitter
-          </a>
         </p>
       )}
     </div>

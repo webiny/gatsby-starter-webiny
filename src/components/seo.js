@@ -10,8 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, title }) => {
-  const { site, webiny } = useStaticQuery(
+const Seo = ({ lang, meta, title }) => {
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
@@ -25,8 +25,6 @@ const Seo = ({ description, lang, meta, title }) => {
             data {
               name
               picture
-              description
-              twitterHandle
             }
           }
         }
@@ -34,7 +32,7 @@ const Seo = ({ description, lang, meta, title }) => {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
 
   return (
@@ -64,10 +62,6 @@ const Seo = ({ description, lang, meta, title }) => {
         {
           name: `twitter:card`,
           content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: webiny.getAuthor.data.twitterHandle || ``,
         },
         {
           name: `twitter:title`,

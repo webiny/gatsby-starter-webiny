@@ -14,7 +14,6 @@ const BlogPostTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo
         title={post.title}
-        description={post.description || post.excerpt}
       />
       <article
         className="blog-post"
@@ -84,7 +83,6 @@ export const pageQuery = graphql`
           id
           title
           slug
-          description
           createdOn
           featuredImage
           body
@@ -106,6 +104,6 @@ export const pageQuery = graphql`
           slug
         }
       }
-    } 
+    }
   }
 `
