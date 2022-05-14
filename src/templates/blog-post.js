@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { RichTextRenderer } from '../components/rich-text-renderer'
+import { RichTextRenderer } from '@webiny/react-rich-text-renderer'
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -28,7 +28,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <section
           itemProp="articleBody"
         >
-          <RichTextRenderer content={post.body} />
+          <RichTextRenderer data={post.body} />
         </section>
         <hr />
         <footer>
